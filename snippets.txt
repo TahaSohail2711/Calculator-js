@@ -1,0 +1,82 @@
+let result = document.getElementById('result')
+
+let append = (val) => {
+  result.value += val
+}
+
+let clearScreen = () => {
+  result.value = ''
+}
+
+let calculate = () => {
+  try {
+    result.value = eval(result.value)
+  } catch (e) {
+    result.value = 'ERROR: ' + e
+  }
+}
+
+let calSin = () => {
+  try {
+    const radVal = toRad(result.value)
+    result.value = Math.sin(radVal)
+  } catch (e) {
+    result.value = 'ERROR: ' + e
+  }
+}
+let calCos = () => {
+  try {
+    const radVal = toRad(result.value)
+    result.value = Math.cos(radVal)
+  } catch (e) {
+    result.value = 'ERROR: ' + e
+  }
+}
+let calTan = () => {
+  try {
+    const radVal = toRad(result.value)
+    result.value = Math.tan(radVal)
+  } catch (e) {
+    result.value = 'ERROR: ' + e
+  }
+}
+
+let calSqrt = () => {
+  try {
+    result.value = Math.sqrt(result.value)
+  } catch (e) {
+    result.value = 'ERROR: ' + e
+  }
+}
+
+let calExp = () => {
+  try {
+    const val = result.value.split('^')
+    const base = val[0]
+    const exp = val[1]
+    result.value = Math.pow(base, exp)
+  } catch (e) {
+    result.value = 'ERROR: ' + e
+  }
+}
+
+let toRad = (deg) => {
+  return deg * (Math.PI / 180)
+}
+
+document.addEventListener('keydown', (e) => {
+  const key = e.key
+  if (key === 'Enter') {
+    calculate()
+  } else if (key === 'c' || key === 'C') {
+    clearScreen()
+  } else if (key === 'BackSpace') {
+    e.preventDefault()
+    result.value = result.value.slice(0, -1)
+  } else {
+    const validChar = '0123456789.+-*/^()'
+    if (validChar.includes(key)) {
+      append(key)
+    }
+  }
+})

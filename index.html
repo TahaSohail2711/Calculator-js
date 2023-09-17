@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Calculator Assignment</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="mystyles.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="var-container">
+      <div class="container">
+        <input id="var-name" type="text" placeholder="Name">
+        <input id="var-val" type="text" placeholder="Value">
+      </div>
+      <button class="op" onclick="addVar()" style="margin-bottom: 0.5em;">Add Var</button>
+      <div id="var-sec" class="cal-btn">
+        <!-- var buttons will be added here -->
+      </div>
+    </div>
+
+    <div class="cal">
+      <input id="in" contenteditable="true" type="text" placeholder="Input Field">
+      <input id="out" type="text" placeholder="= Output Field" readonly>
+      <div class="cal-btn">
+        <button class="expr" onclick="append('(')">(</button>
+        <button class="expr" onclick="append(')')">)</button>
+        <button class="clear" onclick="clearScreen()">AC</button>
+
+
+        <button onclick="append('7')">7</button>
+        <button onclick="append('8')">8</button>
+        <button onclick="append('9')">9</button>
+        <button class="op" onclick="append('/')">&divide;</button>
+
+        <button onclick="append('4')">4</button>
+        <button onclick="append('5')">5</button>
+        <button onclick="append('6')">6</button>
+        <button class="op" onclick="append('*')">&times;</button>
+
+        <button onclick="append('1')">1</button>
+        <button onclick="append('2')">2</button>
+        <button onclick="append('3')">3</button>
+        <button class="op" onclick="append('-')">-</button>
+
+        <button onclick="append('.')">.</button>
+        <button onclick="append('0')">0</button>
+        <button class="op" onclick="append('+')">+</button>
+        <button class="expr" onclick="append('sin(')">sin()</button>
+
+        <button class="equal" onclick="calculate()">=</button>
+        <button class="expr" onclick="append('cos(')">cos()</button>
+        <button class="expr" onclick="append('tan(')">tan()</button>
+
+        <button onclick="append('sqrt(')">&radic;</button>
+        <button onclick="append('^')">^</button>
+        <button onclick="append('pi')">&pi;</button>
+        <button onclick="append('e')">e</button>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js" async defer></script>
+</body>
+
+</html>
